@@ -1,0 +1,63 @@
+# Netlify Configuration for MedEasy PWA
+# This file configures the deployment settings for Netlify
+
+[build]
+  # Directory with the production build
+  publish = "dist"
+  
+  # Build command
+  command = "npm install && npm run build"
+  
+  # Node version
+  [build.environment]
+    NODE_VERSION = "18"
+
+# Redirects and rewrites for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for better PWA support
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # PWA headers
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    # Service worker should never be cached
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    # Manifest caching
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    # Cache static assets for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTTPS redirect
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# Error page
+[[redirects]]
+  from = "/404"
+  to = "/index.html"
+  status = 404

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+  
+  <!-- Primary Meta Tags -->
+  <title>MedEasy - Medicine & Healthcare App</title>
+  <meta name="title" content="MedEasy - Medicine & Healthcare App">
+  <meta name="description" content="Your trusted companion for ordering medicines, finding hospitals, and managing healthcare needs in India.">
+  <meta name="keywords" content="medicine, healthcare, hospital, pharmacy, medical, india, health">
+  <meta name="author" content="MedEasy">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#05045c">
+  <meta name="msapplication-TileColor" content="#05045c">
+  <meta name="msapplication-navbutton-color" content="#05045c">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="MedEasy">
+  <meta name="application-name" content="MedEasy">
+  
+  <!-- Android Chrome -->
+  <meta name="theme-color" content="#05045c" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#05045c" media="(prefers-color-scheme: dark)">
+  
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icon-192.png">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medeasy.app/">
+  <meta property="og:title" content="MedEasy - Medicine & Healthcare App">
+  <meta property="og:description" content="Your trusted companion for ordering medicines, finding hospitals, and managing healthcare needs in India.">
+  <meta property="og:image" content="/og-image.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://medeasy.app/">
+  <meta property="twitter:title" content="MedEasy - Medicine & Healthcare App">
+  <meta property="twitter:description" content="Your trusted companion for ordering medicines, finding hospitals, and managing healthcare needs in India.">
+  <meta property="twitter:image" content="/og-image.png">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Performance Hints -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <!-- No-JS Fallback -->
+  <noscript>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: linear-gradient(135deg, #7c86e4, #05045c);
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      .noscript-message {
+        background: white;
+        color: #05045c;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 400px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      }
+      .noscript-message h1 {
+        margin: 0 0 20px 0;
+      }
+      .noscript-message p {
+        line-height: 1.6;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <!-- No-JS Fallback Message -->
+  <noscript>
+    <div class="noscript-message">
+      <h1>⚠️ JavaScript Required</h1>
+      <p>
+        MedEasy requires JavaScript to function properly. 
+        Please enable JavaScript in your browser settings and reload this page.
+      </p>
+      <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">
+        For the best experience, we recommend using the latest version of Chrome, Firefox, or Samsung Internet.
+      </p>
+    </div>
+  </noscript>
+  
+  <!-- App Root -->
+  <div id="root"></div>
+  
+  <!-- Loading Screen (optional, shown while React loads) -->
+  <style>
+    #root:empty::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #7c86e4, #05045c);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #root:empty::after {
+      content: 'MedEasy';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      font-family: system-ui, -apple-system, sans-serif;
+      animation: pulse 1.5s ease-in-out infinite;
+      z-index: 10000;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    // Check for service worker support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        // Service worker will be registered by React app
+        console.log('Service Worker support detected');
+      });
+    }
+    
+    // Install prompt handling
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('Install prompt available');
+    });
+  </script>
+</body>
+</html>
